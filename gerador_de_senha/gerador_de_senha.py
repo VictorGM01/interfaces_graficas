@@ -20,7 +20,9 @@ class GeradorDeSenha:
             [sg.Spin([x for x in range(1, 30)], initial_value=1, key='chars'),
              sg.Text('Quantidade de Caracteres')],
             [sg.Output(size=(40, 3))],
-            [sg.Button('Gerar Senha')]
+            [sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
+                       image_filename='baseline_vpn_key_black_24dp.png',
+                       key='Gerar Senha')]
         ]
         # janela
         self.janela = sg.Window('Gerador de Senhas', layout,
