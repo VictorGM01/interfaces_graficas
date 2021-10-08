@@ -45,6 +45,15 @@ class GeradorDeSenha:
                         int(valores['chars']))
                                           )
                     print(senha_inter)
+                if valores['senha forte']:
+                    senha_forte = ''.join(random.choice(string.ascii_letters +
+                                                        string.digits +
+                                                        "@#!&$#%*/ç.;:?¨()" +
+                                                        "[]{}|,^~+-¨'_=°ªº")
+                                          for x in range(
+                        int(valores['chars']))
+                                          )
+                    print(senha_forte)
 
 
 teste = GeradorDeSenha()
