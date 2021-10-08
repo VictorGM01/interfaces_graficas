@@ -9,29 +9,36 @@ class GeradorDeSenha:
         # layout
         sg.theme('DarkPurple6')
         layout = [
-            [sg.Text('Gerador de Senhas', size=(17, 1))],
+            [sg.Text('Gerador de Senhas', size=(20, 1),
+                     font=('Helvetica', 20), justification='c')],
             [sg.Text('Senha Fraca', size=(19, 1)),
-             sg.Checkbox('', default=True, key='senha fraca')],
+             sg.Checkbox('', default=False, key='senha fraca')],
             [sg.Text('Senha Intermediária', size=(19, 1)),
-             sg.Checkbox('', default=True, key='senha intermediaria')],
+             sg.Checkbox('', default=False, key='senha intermediaria')],
             [sg.Text('Senha Forte', size=(19, 1)),
-             sg.Checkbox('', default=True, key='senha forte')],
-            [sg.Spin([x for x in range(1, 30)], initial_value=1),
-             sg.Text('Quantidade de Caracteres')]
+             sg.Checkbox('', default=False, key='senha forte')],
+            [sg.Spin([x for x in range(1, 30)], initial_value=1, key='chars'),
+             sg.Text('Quantidade de Caracteres')],
+            [sg.Output(size=(40, 3))],
+            [sg.Button('Gerar Senha')]
         ]
         # janela
-        self.janela = sg.Window('Gerador de Senhas', layout)
+        self.janela = sg.Window('Gerador de Senhas', layout,
+                                element_justification='c')
 
     def iniciar(self):
         while True:
             evento, valores = self.janela.read()
             if evento == sg.WINDOW_CLOSED:
                 break
-            elif evento == 'senha fraca':
-                senha = ''.join(random.choice(string.ascii_lowercase)
-                                for x in range(
-                                int(valores['Quantidade de Caracteres']))
-                                )
-                print(senha)
+            elif evento == 'Gerar Senha':
+                if 'senha forte':
+                    senha = ''.join(random.choice(string.ascii_lowercase)
+                                    for x in range(
+                                    int(valores['chars']))
+                                    )
+                    print(senha)
 
 
+teste = GeradorDeSenha()
+teste.iniciar()
