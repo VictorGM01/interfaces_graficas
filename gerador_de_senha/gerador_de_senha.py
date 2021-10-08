@@ -7,7 +7,7 @@ class GeradorDeSenha:
 
     def __init__(self):
         # layout
-        sg.theme('DarkPurple6')
+        sg.theme('DarkBlack')
         layout = [
             [sg.Text('Gerador de Senhas', size=(20, 1),
                      font=('Helvetica', 20), justification='c')],
