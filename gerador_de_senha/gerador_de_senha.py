@@ -23,8 +23,9 @@ class GeradorDeSenha:
             [sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
                        image_filename='baseline_vpn_key_black_24dp.png',
                        key='Gerar Senha'), sg.Button('', button_color=(
-                        '#F0F0F0', '#F0F0F0'), image_filename=
-                        'baseline_clear_black_24dp.png', key='x')]
+                        '#F0F0F0', '#F0F0F0'),
+                        image_filename='baseline_clear_black_24dp.png',
+                        key='x')]
         ]
         # janela
         self.janela = sg.Window('Gerador de Senhas', layout,
@@ -33,7 +34,7 @@ class GeradorDeSenha:
     def iniciar(self):
         while True:
             evento, valores = self.janela.read()
-            if evento == sg.WINDOW_CLOSED:
+            if evento == sg.WINDOW_CLOSED or evento == 'x':
                 break
             elif evento == 'Gerar Senha':
                 if valores['senha fraca']:
