@@ -32,12 +32,19 @@ class GeradorDeSenha:
             if evento == sg.WINDOW_CLOSED:
                 break
             elif evento == 'Gerar Senha':
-                if 'senha forte':
-                    senha = ''.join(random.choice(string.ascii_lowercase)
-                                    for x in range(
-                                    int(valores['chars']))
-                                    )
-                    print(senha)
+                if valores['senha fraca']:
+                    senha_fraca = ''.join(random.choice(string.ascii_lowercase)
+                                          for x in range(
+                        int(valores['chars']))
+                                          )
+                    print(senha_fraca)
+                if valores['senha intermediaria']:
+                    senha_inter = ''.join(random.choice(string.ascii_letters +
+                                                        string.digits)
+                                          for x in range(
+                        int(valores['chars']))
+                                          )
+                    print(senha_inter)
 
 
 teste = GeradorDeSenha()
