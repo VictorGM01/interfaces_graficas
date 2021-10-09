@@ -77,7 +77,7 @@ def janela_busca_funcao():
         [sg.Text('Função', size=(10, 1)),
          sg.Input(key='função da tag', size=(30, 1))],
         [sg.Text('Resultado(s):', size=(10, 1))],
-        [sg.Output(size=(50, 2))],
+        [sg.Output(size=(50, 2), font=('Helvetica', 12))],
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar função'),
          sg.Button('', image_filename='icons\clear.png',
@@ -166,3 +166,8 @@ while True:
                 if valores['função da tag'] not in linha:
                     print('Função não encontrada... Use palavras chaves')
 
+    # mostrar o dicionário
+    if janela == janela5 and evento == 'ler dicionário':
+        with open('tags', 'r', encoding='utf8') as file:
+            for linha in file:
+                print(linha)
