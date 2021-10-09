@@ -88,7 +88,7 @@ def janela_busca_funcao():
                      finalize=True)
 
 
-def janela_ler_dicionario():
+def janela_le_dicionario():
     sg.theme('DarkPurple1')
     # layout
     layout = [
@@ -117,7 +117,20 @@ while True:
     if evento == sg.WINDOW_CLOSED or evento == 'x':
         break
 
+    # troca de janelas a partir da janela inicial
     if janela == janela1 and evento == 'ok':
         if valores['add']:
             janela2 = janela_adiciona_tag()
+            janela1.hide()
+
+        if valores['buscar tag']:
+            janela3 = janela_busca_tag()
+            janela1.hide()
+
+        if valores['buscar funcao']:
+            janela4 = janela_busca_funcao()
+            janela1.hide()
+
+        if valores['ler dict']:
+            janela5 = janela_le_dicionario()
             janela1.hide()
