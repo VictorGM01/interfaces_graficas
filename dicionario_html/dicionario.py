@@ -106,9 +106,36 @@ def janela_le_dicionario():
     return sg.Window('Ler Dicionário', layout, element_justification='c',
                      finalize=True)
 
+def janela_ajuda():
+    sg.theme('DarkPurple1')
+    # layout
+    layout = [
+        [sg.Text('Ajuda - Dicionário HTML', font=('Helvetica', 22),
+                 justification='c')],
+        [sg.Text('Adicionar uma tag ao dicionário:', font=('Helvetica', 15))],
+        [sg.Text('Home->Adicionar tag ao dicionário->OK',
+                 font=('Helvetica', 12))],
+        [sg.Text('Buscar Tag:', font=('Helvetica', 15))],
+        [sg.Text('Home->Procurar tag específica->OK',
+                 font=('Helvetica', 12))],
+        [sg.Text('Buscar Tag por Função:', font=('Helvetica', 15))],
+        [sg.Text('Home->Procurar por função específica->OK',
+                 font=('Helvetica', 12))],
+        [sg.Text('Ver todas as tags já adicionadas:',
+                 font=('Helvetica', 15))],
+        [sg.Text('Home->Ler todo o dicionário->OK',
+                 font=('Helvetica', 12))],
+        [sg.Button('', image_filename=r'icons\btn_icon_home.png',
+                   key='home'),
+         sg.Button('', image_filename='icons\clear.png', key='x')]
+    ]
+    # janela
+    return sg.Window('Ajuda', layout, finalize=True)
+
 
 # janela inicial -> primeira a ser iniciada
-janela1, janela2, janela3, janela4, janela5 = janela_inicial(), None, None, None, None
+janela1 = janela_inicial()
+janela2, janela3, janela4, janela5, janela6 = None, None, None, None, None
 
 # loop para as janelas
 while True:
@@ -135,6 +162,10 @@ while True:
         if valores['ler dict']:
             janela5 = janela_le_dicionario()
             janela1.hide()
+
+    if janela == janela1 and evento == 'help':
+        janela6 = janela_ajuda()
+        janela1.hide()
 
     # adicionar tag
     if janela == janela2 and evento == 'adicionar tag':
