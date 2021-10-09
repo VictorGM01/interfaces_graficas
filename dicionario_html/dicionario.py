@@ -54,9 +54,9 @@ def janela_busca_tag() -> sg.Window:
                  justification='c'),
          sg.Image(filename='icons\icon_search.png')],
         [sg.Text('Nome da Tag', size=(15, 1)),
-         sg.Input(key='nome da tag - busca', size=(30, 1))],
+         sg.Input(key='nome da tag', size=(30, 1))],
         [sg.Text('Resultado:', size=(10, 1))],
-        [sg.Output(size=(50, 2))],
+        [sg.Output(size=(50, 2), font=('Helvetica', 12))],
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar tag'),
          sg.Button('', image_filename='icons\clear.png',
@@ -143,3 +143,15 @@ while True:
                        f"{valores['função da tag']}")
             print(f"A tag: '{valores['nome da tag']}' foi" +
                   " adicionada ao dicionário")
+
+    # buscar tag
+    if janela == janela3 and evento == 'buscar tag':
+        with open('tags', 'r', encoding='utf8') as file:
+            for linha in file:
+                if valores['nome da tag'] in linha.split(' --->>>')[0]:
+                    tag = linha
+                    print(tag)
+                elif valores['nome da tag'] not in linha.split(' --->>>')[0]:
+                    print('Infelizmente a tag que você procura' +
+                          ' não pôde ser encontrada' + ' \U0001F614')
+
