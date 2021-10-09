@@ -39,6 +39,8 @@ def janela_adiciona_tag() -> sg.Window:
          sg.Input(key='função da tag', size=(30, 1))],
         [sg.Output(size=(50, 1), font=('Arial Bound', 12))],
         [sg.Button('', image_filename=r'icons\add.png', key='adicionar tag'),
+         sg.Button('', image_filename=r'icons\btn_icon_home.png',
+                   key='home'),
          sg.Button('', image_filename='icons\clear.png',
                    key='x')]
     ]
@@ -60,6 +62,8 @@ def janela_busca_tag() -> sg.Window:
         [sg.Output(size=(50, 2), font=('Helvetica', 12))],
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar tag'),
+         sg.Button('', image_filename=r'icons\btn_icon_home.png',
+                   key='home'),
          sg.Button('', image_filename='icons\clear.png',
                    key='x')]
     ]
@@ -81,6 +85,8 @@ def janela_busca_funcao():
         [sg.Output(size=(50, 2), font=('Helvetica', 12))],
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar função'),
+         sg.Button('', image_filename=r'icons\btn_icon_home.png',
+                   key='home'),
          sg.Button('', image_filename='icons\clear.png',
                    key='x')]
     ]
@@ -99,6 +105,8 @@ def janela_le_dicionario():
         [sg.Output(size=(50, 15))],
         [sg.Button('', image_filename=r'icons\btn_read.png',
                    key='ler dicionário'),
+         sg.Button('', image_filename=r'icons\btn_icon_home.png',
+                   key='home'),
          sg.Button('', image_filename='icons\clear.png',
                    key='x')]
     ]
