@@ -36,7 +36,7 @@ def janela_adiciona_tag() -> sg.Window:
          sg.Input(key='nome da tag', size=(30, 1))],
         [sg.Text('Função da Tag', size=(15, 1)),
          sg.Input(key='função da tag', size=(30, 1))],
-        [sg.Output(size=(50, 1))],
+        [sg.Output(size=(50, 1), font=('Arial Bound', 12))],
         [sg.Button('', image_filename=r'icons\add.png', key='adicionar tag'),
          sg.Button('', image_filename='icons\clear.png',
                    key='x')]
@@ -141,4 +141,5 @@ while True:
             file.write('\n')
             file.write(f"tag: {valores['nome da tag']} --->>> Função: " +
                        f"{valores['função da tag']}")
-            print(f"Tag: '{valores['nome da tag']}' adicionada com sucesso!!")
+            print(f"A tag: '{valores['nome da tag']}' foi" +
+                  " adicionada ao dicionário")
