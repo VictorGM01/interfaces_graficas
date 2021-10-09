@@ -1,4 +1,3 @@
-tag: button --->>> Função: Adiciona um botão na página
 tag: h1 --->>> Função: Define o título principal da página
 tag: footer --->>> Função: rodapé da página
 tag: header --->>> Função: define o cabeçalho da página
@@ -45,3 +44,7 @@ tag: strong --->>> Função: Responsável por deixar um conteúdo com um peso se
 tag: em --->>> Função: Responsável por deixar um conteúdo com um peso semântico maior, e também, por deixar aquele conteúdo em itálico (ênfase)
 tag: small --->>> Função: Responsável por deixar o texto pequeno
 tag: article --->>> Função: Adiciona uma seção com um conteúdo independente do conteúdo principal da página
+tag: iframe --->>> Função: Tag especial que é utilizada parar incorporar códigos HTML pegos de algum site, na qual há uma exibição extra na página
+tag: aside --->>> Função: Representa uma seção da página que possui um conteúdo relacionado com o conteúdo de seu entorno. São barras laterais que possui explicações, informações de perfil ou link de blogs etc.
+tag: address --->>> Função: Responsável por fornecer informações de contato para os conteúdos de body ou article.
+tag: br --->>> Função: Pula uma linha
