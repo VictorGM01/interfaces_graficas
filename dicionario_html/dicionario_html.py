@@ -1,8 +1,8 @@
 import PySimpleGUI as sg
 
 
-def janela_inicial():
-    # layout janela
+def janela_inicial() -> sg.Window:
+    # layout
     sg.theme('DarkPurple1')
     layout = [
         [sg.Text('Dicionário de Tags do HTML',
@@ -25,7 +25,7 @@ def janela_inicial():
                      element_justification='center')
 
 
-def janela_adiciona_tag():
+def janela_adiciona_tag() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
     layout = [
@@ -44,7 +44,7 @@ def janela_adiciona_tag():
                      element_justification='c')
 
 
-def janela_busca_tag():
+def janela_busca_tag() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
 
