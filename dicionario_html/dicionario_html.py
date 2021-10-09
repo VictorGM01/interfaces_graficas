@@ -63,9 +63,28 @@ def janela_busca_tag() -> sg.Window:
     return sg.Window('Buscar Tag', layout, element_justification='c')
 
 
-janela = janela_busca_tag()
+def janela_busca_funcao():
+    sg.theme('DarkPurple1')
+    # layout
+    layout = [
+        [sg.Text('Pesquisar Função Específica', font=('Helvetica', 15),
+                 justification='c'),
+         sg.Image(filename='icon_busca_func.png')],
+        [sg.Text('Função', size=(10, 1)),
+         sg.Input(key='função da tag', size=(30, 1))],
+        [sg.Text('Resultado(s):', size=(10, 1))],
+        [sg.Output(size=(50, 2))],
+        [sg.Button('', image_filename='icon_btn_busca.png',
+                   key='buscar função'),
+         sg.Button('', image_filename='clear.png', key='cancelar pesquisa')]
+    ]
+    # janela
+    return sg.Window('Buscar Função', layout, element_justification='c')
+
+
+janela = janela_busca_funcao()
 
 while True:
     evento, valores = janela.read()
-    if evento == sg.WINDOW_CLOSED or evento == 'cancelar busca':
+    if evento == sg.WINDOW_CLOSED or evento == 'cancelar pesquisa':
         break
