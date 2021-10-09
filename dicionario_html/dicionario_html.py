@@ -44,6 +44,11 @@ def janela_adiciona_tag():
                      element_justification='c')
 
 
+def janela_busca_tag():
+    sg.theme('DarkPurple1')
+    # layout
+
+
 janela = janela_adiciona_tag()
 
 while True:
