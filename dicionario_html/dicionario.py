@@ -211,3 +211,9 @@ while True:
         with open('tags', 'r', encoding='utf8') as file:
             for linha in file:
                 print(linha)
+
+    # voltar ao home
+    if janela == janela2 or janela == janela3 or janela == janela4\
+            or janela == janela5 or janela == janela6 and evento == 'home':
+        janela1 = janela_inicial()
+        janela.hide()
