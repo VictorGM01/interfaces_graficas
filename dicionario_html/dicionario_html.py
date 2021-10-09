@@ -29,7 +29,7 @@ def janela_adiciona_tag() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
     layout = [
-        [sg.Text('Adicione uma Nova Tag ao Dicionário',
+        [sg.Text('Adicionar uma Nova Tag ao Dicionário',
                  font=('Helvetica', 15), justification='c'),
          sg.Image(filename='icon_add_html.png')],
         [sg.Text('Nome da Tag', size=(15, 1)),
@@ -48,11 +48,24 @@ def janela_adiciona_tag() -> sg.Window:
 def janela_busca_tag() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
+    layout = [
+        [sg.Text('Pesquisar uma Tag Específica', font=('Helvetica', 15),
+                 justification='c'),
+         sg.Image(filename='icon_search.png')],
+        [sg.Text('Nome da Tag', size=(15, 1)),
+         sg.Input(key='nome da tag - busca', size=(30, 1))],
+        [sg.Text('Resultado:', size=(10, 1))],
+        [sg.Output(size=(50, 2))],
+        [sg.Button('', image_filename='', key='buscar tag'),
+         sg.Button('', image_filename='clear.png', key='cancelar busca')]
+    ]
+    # janela
+    return sg.Window('Buscar Tag', layout, element_justification='c')
 
 
-janela = janela_adiciona_tag()
+janela = janela_busca_tag()
 
 while True:
     evento, valores = janela.read()
-    if evento == sg.WINDOW_CLOSED or evento == 'cancelar adição':
+    if evento == sg.WINDOW_CLOSED or evento == 'cancelar busca':
         break
