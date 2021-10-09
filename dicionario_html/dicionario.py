@@ -134,3 +134,11 @@ while True:
         if valores['ler dict']:
             janela5 = janela_le_dicionario()
             janela1.hide()
+
+    # adicionar tag
+    if janela == janela2 and evento == 'adicionar tag':
+        with open('tags', "a", encoding="utf8") as file:
+            file.write('\n')
+            file.write(f"tag: {valores['nome da tag']} --->>> Função: " +
+                       f"{valores['função da tag']}")
+            print(f"Tag: '{valores['nome da tag']}' adicionada com sucesso!!")
