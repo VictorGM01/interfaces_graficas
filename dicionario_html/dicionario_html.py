@@ -25,9 +25,28 @@ def janela_inicial():
                      element_justification='center')
 
 
-janela = janela_inicial()
+def janela_adiciona_tag():
+    sg.theme('DarkPurple1')
+    # layout
+    layout = [
+        [sg.Text('Adicione uma Nova Tag ao Dicionário',
+                 font=('Helvetica', 15), justification='c')],
+        [sg.Text('Nome da Tag', size=(15, 1)),
+         sg.Input(key='nome da tag', size=(30, 1))],
+        [sg.Text('Função da Tag', size=(15, 1)),
+         sg.Input(key='função da tag', size=(30, 1))],
+        [sg.Output(size=(50, 1))],
+        [sg.Button('', image_filename='add.png', key='adicionar tag'),
+         sg.Button('', image_filename='clear.png', key='cancelar adição')]
+    ]
+    # janela
+    return sg.Window('Adicionar Tag', layout,
+                     element_justification='c')
+
+
+janela = janela_adiciona_tag()
 
 while True:
     evento, valores = janela.read()
-    if evento == sg.WINDOW_CLOSED or evento == 'x':
+    if evento == sg.WINDOW_CLOSED or evento == 'cancelar adição':
         break
