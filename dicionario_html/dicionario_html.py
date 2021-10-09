@@ -56,7 +56,7 @@ def janela_busca_tag() -> sg.Window:
          sg.Input(key='nome da tag - busca', size=(30, 1))],
         [sg.Text('Resultado:', size=(10, 1))],
         [sg.Output(size=(50, 2))],
-        [sg.Button('', image_filename='', key='buscar tag'),
+        [sg.Button('', image_filename='icon_btn_busca.png', key='buscar tag'),
          sg.Button('', image_filename='clear.png', key='cancelar busca')]
     ]
     # janela
