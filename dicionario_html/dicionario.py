@@ -72,7 +72,7 @@ def janela_busca_tag() -> sg.Window:
                      finalize=True)
 
 
-def janela_busca_funcao():
+def janela_busca_funcao() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
     layout = [
@@ -95,7 +95,7 @@ def janela_busca_funcao():
                      finalize=True)
 
 
-def janela_le_dicionario():
+def janela_le_dicionario() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
     layout = [
@@ -114,7 +114,7 @@ def janela_le_dicionario():
     return sg.Window('Ler Dicionário', layout, element_justification='c',
                      finalize=True)
 
-def janela_ajuda():
+def janela_ajuda() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
     layout = [
