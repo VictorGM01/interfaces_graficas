@@ -59,7 +59,7 @@ def janela_busca_tag() -> sg.Window:
         [sg.Text('Nome da Tag', size=(15, 1)),
          sg.Input(key='nome da tag', size=(30, 1))],
         [sg.Text('Resultado:', size=(10, 1))],
-        [sg.Output(size=(50, 2), font=('Helvetica', 12))],
+        [sg.Output(size=(50, 1), font=('Helvetica', 12))],
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar tag'),
          sg.Button('', image_filename=r'icons\btn_icon_home.png',
@@ -82,7 +82,7 @@ def janela_busca_funcao() -> sg.Window:
         [sg.Text('Função', size=(10, 1)),
          sg.Input(key='função da tag', size=(30, 1))],
         [sg.Text('Resultado(s):', size=(10, 1))],
-        [sg.Output(size=(50, 2), font=('Helvetica', 12))],
+        [sg.Output(size=(50, 1), font=('Helvetica', 12), key='saída')],
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar função'),
          sg.Button('', image_filename=r'icons\btn_icon_home.png',
@@ -114,22 +114,26 @@ def janela_le_dicionario() -> sg.Window:
     return sg.Window('Ler Dicionário', layout, element_justification='c',
                      finalize=True)
 
+
 def janela_ajuda() -> sg.Window:
     sg.theme('DarkPurple1')
     # layout
     layout = [
         [sg.Text('Ajuda - Dicionário HTML', font=('Helvetica', 22),
                  justification='c')],
-        [sg.Text('Adicionar uma tag ao dicionário:', font=('Helvetica', 15))],
+        [sg.Text('Adicionar uma tag ao dicionário:', size=(30, 1),
+                 font=('Helvetica', 15))],
         [sg.Text('Home->Adicionar tag ao dicionário->OK',
                  font=('Helvetica', 12))],
-        [sg.Text('Buscar Tag:', font=('Helvetica', 15))],
+        [sg.Text('Buscar Tag:', size=(30, 1),
+                 font=('Helvetica', 15))],
         [sg.Text('Home->Procurar tag específica->OK',
                  font=('Helvetica', 12))],
-        [sg.Text('Buscar Tag por Função:', font=('Helvetica', 15))],
+        [sg.Text('Buscar Tag por Função:', size=(30, 1),
+                 font=('Helvetica', 15))],
         [sg.Text('Home->Procurar por função específica->OK',
                  font=('Helvetica', 12))],
-        [sg.Text('Ver todas as tags já adicionadas:',
+        [sg.Text('Ver todas as tags já adicionadas:', size=(30, 1),
                  font=('Helvetica', 15))],
         [sg.Text('Home->Ler todo o dicionário->OK',
                  font=('Helvetica', 12))],
@@ -191,9 +195,6 @@ while True:
                 if valores['nome da tag'] in linha.split(' --->>>')[0]:
                     tag = linha
                     print(tag)
-                elif valores['nome da tag'] not in linha.split(' --->>>')[0]:
-                    print('Infelizmente a tag que você procura' +
-                          ' não pôde ser encontrada' + ' \U0001F614')
 
     # buscar função
     if janela == janela4 and evento == 'buscar função':
@@ -203,9 +204,6 @@ while True:
                     funcao = linha
                     print(funcao)
 
-                if valores['função da tag'] not in linha:
-                    print('Função não encontrada... Use palavras chaves')
-
     # mostrar o dicionário
     if janela == janela5 and evento == 'ler dicionário':
         with open('tags', 'r', encoding='utf8') as file:
@@ -213,7 +211,22 @@ while True:
                 print(linha)
 
     # voltar ao home
-    if janela == janela2 or janela == janela3 or janela == janela4\
-            or janela == janela5 or janela == janela6 and evento == 'home':
-        janela1 = janela_inicial()
+    if janela == janela2 and evento == 'home':
         janela.hide()
+        janela1.un_hide()
+
+    if janela == janela3 and evento == 'home':
+        janela.hide()
+        janela1.un_hide()
+
+    if janela == janela4 and evento == 'home':
+        janela.hide()
+        janela1.un_hide()
+
+    if janela == janela5 and evento == 'home':
+        janela.hide()
+        janela1.un_hide()
+
+    if janela == janela6 and evento == 'home':
+        janela.hide()
+        janela1.un_hide()
