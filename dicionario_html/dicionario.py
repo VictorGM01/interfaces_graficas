@@ -18,7 +18,8 @@ def janela_inicial() -> sg.Window:
          sg.Checkbox('', default=False, key='ler dict')],
         [sg.Button('', image_size=(24, 24),
                    image_filename='icons\ok.png', key='ok'),
-         sg.Button('', image_filename='icons\clear.png', key='x')]
+         sg.Button('', image_filename='icons\clear.png', key='x'),
+         sg.Button('', image_filename='icons\icon_help.png', key='help')]
     ]
     # janela
     return sg.Window('Dicionário HTML', layout, element_justification='c',
