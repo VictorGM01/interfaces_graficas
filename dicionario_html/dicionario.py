@@ -155,3 +155,14 @@ while True:
                     print('Infelizmente a tag que você procura' +
                           ' não pôde ser encontrada' + ' \U0001F614')
 
+    # buscar função
+    if janela == janela4 and evento == 'buscar função':
+        with open('tags', 'r', encoding='utf8') as file:
+            for linha in file:
+                if valores['função da tag'] in linha:
+                    funcao = linha
+                    print(funcao)
+
+                if valores['função da tag'] not in linha:
+                    print('Função não encontrada... Use palavras chaves')
+
