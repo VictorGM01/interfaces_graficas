@@ -30,7 +30,8 @@ def janela_adiciona_tag() -> sg.Window:
     # layout
     layout = [
         [sg.Text('Adicione uma Nova Tag ao Dicionário',
-                 font=('Helvetica', 15), justification='c')],
+                 font=('Helvetica', 15), justification='c'),
+         sg.Image(filename='icon_add_html.png')],
         [sg.Text('Nome da Tag', size=(15, 1)),
          sg.Input(key='nome da tag', size=(30, 1))],
         [sg.Text('Função da Tag', size=(15, 1)),
