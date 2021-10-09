@@ -21,8 +21,8 @@ def janela_inicial() -> sg.Window:
          sg.Button('', image_filename='icons\clear.png', key='x')]
     ]
     # janela
-    return sg.Window('Dicionário HTML', layout,
-                     element_justification='center')
+    return sg.Window('Dicionário HTML', layout, element_justification='c',
+                     finalize=True)
 
 
 def janela_adiciona_tag() -> sg.Window:
@@ -39,11 +39,11 @@ def janela_adiciona_tag() -> sg.Window:
         [sg.Output(size=(50, 1))],
         [sg.Button('', image_filename=r'icons\add.png', key='adicionar tag'),
          sg.Button('', image_filename='icons\clear.png',
-                   key='cancelar adição')]
+                   key='x')]
     ]
     # janela
-    return sg.Window('Adicionar Tag', layout,
-                     element_justification='c')
+    return sg.Window('Adicionar Tag', layout, element_justification='c',
+                     finalize=True)
 
 
 def janela_busca_tag() -> sg.Window:
@@ -60,10 +60,11 @@ def janela_busca_tag() -> sg.Window:
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar tag'),
          sg.Button('', image_filename='icons\clear.png',
-                   key='cancelar busca')]
+                   key='x')]
     ]
     # janela
-    return sg.Window('Buscar Tag', layout, element_justification='c')
+    return sg.Window('Buscar Tag', layout, element_justification='c',
+                     finalize=True)
 
 
 def janela_busca_funcao():
@@ -80,10 +81,11 @@ def janela_busca_funcao():
         [sg.Button('', image_filename='icons\icon_btn_busca.png',
                    key='buscar função'),
          sg.Button('', image_filename='icons\clear.png',
-                   key='cancelar pesquisa')]
+                   key='x')]
     ]
     # janela
-    return sg.Window('Buscar Função', layout, element_justification='c')
+    return sg.Window('Buscar Função', layout, element_justification='c',
+                     finalize=True)
 
 
 def janela_ler_dicionario():
@@ -97,15 +99,25 @@ def janela_ler_dicionario():
         [sg.Button('', image_filename=r'icons\btn_read.png',
                    key='ler dicionário'),
          sg.Button('', image_filename='icons\clear.png',
-                   key='cancelar leitura')]
+                   key='x')]
     ]
     # janela
-    return sg.Window('Ler Dicionário', layout, element_justification='c')
+    return sg.Window('Ler Dicionário', layout, element_justification='c',
+                     finalize=True)
 
 
-janela = janela_ler_dicionario()
+# janela inicial -> primeira a ser iniciada
+janela1, janela2, janela3, janela4, janela5 = janela_inicial(), None, None, None, None
 
+# loop para as janelas
 while True:
-    evento, valores = janela.read()
-    if evento == sg.WINDOW_CLOSED or evento == 'cancelar leitura':
+    janela, evento, valores = sg.read_all_windows()
+
+    # botões de fechar
+    if evento == sg.WINDOW_CLOSED or evento == 'x':
         break
+
+    if janela == janela1 and evento == 'ok':
+        if valores['add']:
+            janela2 = janela_adiciona_tag()
+            janela1.hide()
