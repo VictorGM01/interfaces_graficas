@@ -49,21 +49,21 @@ class GeradorDeSenha:
                 if valores['senha fraca']:
 
                     # gera senha com caracteres minúsculos
-                    senha_fraca = ''.join(random.choice(string.ascii_lowercase)
-                                          for x in range(
-                        int(valores['chars']))
-                                          )
+                    senha_fraca = ''
+                    for c in range(valores['chars']):
+                        senha_fraca += random.choice(string.ascii_lowercase)
+
                     print(senha_fraca)
 
                 # executa quando o checkbox "senha intermediária" é marcado
                 if valores['senha intermediaria']:
 
                     # gera senha com caracteres minúsculos e maiúsculos
-                    senha_inter = ''.join(random.choice(string.ascii_letters +
-                                                        string.digits)
-                                          for x in range(
-                        int(valores['chars']))
-                                          )
+                    senha_inter = ''
+                    for c in range(valores['chars']):
+                        senha_inter += random.choice(string.ascii_letters +
+                                                     string.digits)
+
                     print(senha_inter)
 
                 # executa quando o checkbox "senha forte" é marcado
@@ -71,13 +71,13 @@ class GeradorDeSenha:
 
                     # gera senha com caracteres minúsculos e maiúsculos,
                     # dígitos e caracteres especiais
-                    senha_forte = ''.join(random.choice(string.ascii_letters +
-                                                        string.digits +
-                                                        "@#!&$#%*/ç.;:?¨()" +
-                                                        "[]{}|,^~+-¨'_=°ªº")
-                                          for x in range(
-                        int(valores['chars']))
-                                          )
+                    senha_forte = ''
+                    for c in range(valores['chars']):
+                        senha_forte += random.choice(string.ascii_letters +
+                                                     string.digits +
+                                                     "@#!&$#%*/ç.;:?¨()" +
+                                                     "[]{}|,^~+-¨'_=°ªº")
+
                     print(senha_forte)
 
 
