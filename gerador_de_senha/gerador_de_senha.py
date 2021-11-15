@@ -50,6 +50,7 @@ class GeradorDeSenha:
                 if valores['senha fraca']:
 
                     # gera senha com caracteres minúsculos
+                    global senha_fraca
                     senha_fraca = ''
                     for c in range(valores['chars']):
                         senha_fraca += random.choice(string.ascii_lowercase)
@@ -60,6 +61,7 @@ class GeradorDeSenha:
                 if valores['senha intermediaria']:
 
                     # gera senha com caracteres minúsculos e maiúsculos
+                    global senha_inter
                     senha_inter = ''
                     for c in range(valores['chars']):
                         senha_inter += random.choice(string.ascii_letters +
@@ -72,6 +74,7 @@ class GeradorDeSenha:
 
                     # gera senha com caracteres minúsculos e maiúsculos,
                     # dígitos e caracteres especiais
+                    global senha_forte
                     senha_forte = ''
                     for c in range(valores['chars']):
                         senha_forte += random.choice(string.ascii_letters +
@@ -80,6 +83,16 @@ class GeradorDeSenha:
                                                      "[]{}|,^~+-¨'_=°ªº")
 
                     print(senha_forte)
+
+            elif evento == 'copy':
+                if valores['senha fraca']:
+                    pyperclip.copy(senha_fraca)
+
+                elif valores['senha intermediaria']:
+                    pyperclip.copy(senha_inter)
+
+                elif valores['senha forte']:
+                    pyperclip.copy(senha_forte)
 
 
 teste = GeradorDeSenha()
