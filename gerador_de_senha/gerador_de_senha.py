@@ -122,6 +122,12 @@ class GeradorDeSenha:
         janela_salvar_senha = sg.Window('Salvar senha', layout,
                                         element_justification='c')
 
+        while True:
+            evento, valores = janela_salvar_senha.read()
+
+            if evento == sg.WINDOW_CLOSED or evento == 'cancelar':
+                break
+
 
 teste = GeradorDeSenha()
 teste.iniciar()
