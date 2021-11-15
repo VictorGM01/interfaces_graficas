@@ -22,10 +22,14 @@ class GeradorDeSenha:
             [sg.Output(size=(40, 3))],
             [sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
                        image_filename='baseline_vpn_key_black_24dp.png',
-                       key='Gerar Senha'), sg.Button('', button_color=(
-                        '#F0F0F0', '#F0F0F0'),
-                        image_filename='baseline_clear_black_24dp.png',
-                        key='x')]
+                       key='Gerar Senha'),
+             sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
+                       image_filename='copy.png', key='copy'),
+             sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
+                       image_filename='save.png', key='save'),
+             sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
+                       image_filename='baseline_clear_black_24dp.png', key='x'
+                       )]
         ]
         # janela
         self.janela = sg.Window('Gerador de Senhas', layout,
