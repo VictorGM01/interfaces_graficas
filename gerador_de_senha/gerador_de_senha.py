@@ -94,6 +94,34 @@ class GeradorDeSenha:
                 elif valores['senha forte']:
                     pyperclip.copy(senha_forte)
 
+            elif evento == 'save':
+                if valores['senha fraca']:
+                    self.janela_salvar_senha(senha_fraca)
+
+                elif valores['senha intermediaria']:
+                    self.janela_salvar_senha(senha_inter)
+
+                elif valores['senha forte']:
+                    self.janela_salvar_senha(senha_forte)
+
+    def janela_salvar_senha(self, senha):
+        sg.theme('DarkBlack')
+        layout = [
+            [sg.Text('Salvar Senha', size=(15, 1),
+                     font=('Helvetica', 20), justification='c')],
+            [sg.Text('')],
+            [sg.Text('Nome do seu Usuário Windows'), sg.Input(
+                size=(20, 1), key='user')],
+            [sg.Text('A senha é referente à qual software/serviço?'),
+             sg.Input(size=(20, 1), key='nome_file')],
+            [sg.Text('')],
+            [sg.Button('Salvar', key='salvar'), sg.Button('Cancelar',
+                                                          key='cancelar')]
+        ]
+
+        janela_salvar_senha = sg.Window('Salvar senha', layout,
+                                        element_justification='c')
+
 
 teste = GeradorDeSenha()
 teste.iniciar()
