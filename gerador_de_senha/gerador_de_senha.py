@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import random
 import string
+import pyperclip
 
 
 class GeradorDeSenha:
