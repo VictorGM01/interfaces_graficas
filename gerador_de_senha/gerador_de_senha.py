@@ -12,7 +12,7 @@ class GeradorDeSenha:
         layout = [
             [sg.Text('Gerador de Senhas', font=('Helvetica', 20),
                      justification='c'),
-             sg.Image(filename='password.png')],
+             sg.Image(filename='icons\password.png')],
             [sg.Text('Senha Fraca', size=(19, 1)),
              sg.Checkbox('', default=False, key='senha fraca')],
             [sg.Text('Senha Intermediária', size=(19, 1)),
@@ -25,14 +25,15 @@ class GeradorDeSenha:
             [sg.Output(size=(40, 3))],
             [sg.Text('')],
             [sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
-                       image_filename='baseline_vpn_key_black_24dp.png',
+                       image_filename=r'icons\baseline_vpn_key_black_24dp.png',
                        key='Gerar Senha'),
              sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
-                       image_filename='copy.png', key='copy'),
+                       image_filename='icons\copy.png', key='copy'),
              sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
-                       image_filename='save.png', key='save'),
+                       image_filename='icons\save.png', key='save'),
              sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
-                       image_filename='baseline_clear_black_24dp.png', key='x'
+                       image_filename=r'icons\baseline_clear_black_24dp.png',
+                       key='x'
                        )]
         ]
         # janela
@@ -113,7 +114,7 @@ class GeradorDeSenha:
         layout = [
             [sg.Text('Salvar Senha', font=('Helvetica', 20),
                      justification='c'),
-             sg.Image(filename='icon_save.png')],
+             sg.Image(filename='icons\icon_save.png')],
             [sg.Text('')],
             [sg.Text('Nome do seu Usuário Windows', size=(44, 1)), sg.Input(
                 size=(25, 1), key='user',
