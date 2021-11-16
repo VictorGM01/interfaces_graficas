@@ -10,8 +10,9 @@ class GeradorDeSenha:
         # layout
         sg.theme('DarkBlack')
         layout = [
-            [sg.Text('Gerador de Senhas', size=(20, 1),
-                     font=('Helvetica', 20), justification='c')],
+            [sg.Text('Gerador de Senhas', font=('Helvetica', 20),
+                     justification='c'),
+             sg.Image(filename='password.png')],
             [sg.Text('Senha Fraca', size=(19, 1)),
              sg.Checkbox('', default=False, key='senha fraca')],
             [sg.Text('Senha Intermediária', size=(19, 1)),
@@ -20,7 +21,9 @@ class GeradorDeSenha:
              sg.Checkbox('', default=False, key='senha forte')],
             [sg.Spin([x for x in range(1, 60)], initial_value=1, key='chars'),
              sg.Text('Quantidade de Caracteres')],
+            [sg.Text('')],
             [sg.Output(size=(40, 3))],
+            [sg.Text('')],
             [sg.Button('', button_color=('#F0F0F0', '#F0F0F0'),
                        image_filename='baseline_vpn_key_black_24dp.png',
                        key='Gerar Senha'),
@@ -108,13 +111,16 @@ class GeradorDeSenha:
     def janela_salvar_senha(senha):
         sg.theme('DarkBlack')
         layout = [
-            [sg.Text('Salvar Senha', size=(15, 1),
-                     font=('Helvetica', 20), justification='c')],
+            [sg.Text('Salvar Senha', font=('Helvetica', 20),
+                     justification='c'),
+             sg.Image(filename='icon_save.png')],
             [sg.Text('')],
             [sg.Text('Nome do seu Usuário Windows', size=(44, 1)), sg.Input(
-                size=(25, 1), key='user')],
+                size=(25, 1), key='user',
+                default_text='Insira um usuário existente')],
             [sg.Text('Caminho da pasta para armazenamento', size=(44, 1)),
-             sg.Input(size=(25, 1), key='pasta')],
+             sg.Input(default_text='Insira uma pasta existente',
+                      size=(25, 1), key='pasta')],
             [sg.Text('A senha é referente a qual software/serviço?',
                      size=(44, 1)),
              sg.Input(size=(25, 1), key='nome_file')],
