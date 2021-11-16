@@ -112,9 +112,12 @@ class GeradorDeSenha:
             [sg.Text('')],
             [sg.Text('Nome do seu Usuário Windows'), sg.Input(
                 size=(20, 1), key='user')],
+            [sg.Text('Caminho da pasta para armazenamento'), sg.Input(
+                size=(20, 1), key='pasta')],
             [sg.Text('A senha é referente à qual software/serviço?'),
              sg.Input(size=(20, 1), key='nome_file')],
             [sg.Text('')],
+            [sg.Output(size=(20, 1))],
             [sg.Button('Salvar', key='salvar'), sg.Button('Cancelar',
                                                           key='cancelar')]
         ]
@@ -127,6 +130,16 @@ class GeradorDeSenha:
 
             if evento == sg.WINDOW_CLOSED or evento == 'cancelar':
                 break
+
+            elif evento == 'salvar':
+                with open(r'C:\Users\{}\{}\{}.txt'.format(valores['user'],
+                                                          valores['pasta'],
+                                                          valores['nome_file']),
+                          mode='w') as pass_file:
+
+                    pass_file.write(f'Senha --->>> {senha}')
+
+                print('Senha salva com sucesso!')
 
 
 teste = GeradorDeSenha()
