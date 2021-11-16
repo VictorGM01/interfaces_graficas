@@ -104,20 +104,22 @@ class GeradorDeSenha:
                 elif valores['senha forte']:
                     self.janela_salvar_senha(senha_forte)
 
-    def janela_salvar_senha(self, senha):
+    @staticmethod
+    def janela_salvar_senha(senha):
         sg.theme('DarkBlack')
         layout = [
             [sg.Text('Salvar Senha', size=(15, 1),
                      font=('Helvetica', 20), justification='c')],
             [sg.Text('')],
-            [sg.Text('Nome do seu Usuário Windows'), sg.Input(
-                size=(20, 1), key='user')],
-            [sg.Text('Caminho da pasta para armazenamento'), sg.Input(
-                size=(20, 1), key='pasta')],
-            [sg.Text('A senha é referente à qual software/serviço?'),
-             sg.Input(size=(20, 1), key='nome_file')],
+            [sg.Text('Nome do seu Usuário Windows', size=(44, 1)), sg.Input(
+                size=(25, 1), key='user')],
+            [sg.Text('Caminho da pasta para armazenamento', size=(44, 1)),
+             sg.Input(size=(25, 1), key='pasta')],
+            [sg.Text('A senha é referente a qual software/serviço?',
+                     size=(44, 1)),
+             sg.Input(size=(25, 1), key='nome_file')],
             [sg.Text('')],
-            [sg.Output(size=(20, 1))],
+            [sg.Output(size=(64, 1))],
             [sg.Button('Salvar', key='salvar'), sg.Button('Cancelar',
                                                           key='cancelar')]
         ]
@@ -132,14 +134,15 @@ class GeradorDeSenha:
                 break
 
             elif evento == 'salvar':
-                with open(r'C:\Users\{}\{}\{}.txt'.format(valores['user'],
-                                                          valores['pasta'],
-                                                          valores['nome_file']),
-                          mode='w') as pass_file:
+                user = valores['user']
+                pst = valores['pasta']
+                file = valores['nome_file']
+                with open(r'C:\Users\{}\{}\{}.txt'.format(user, pst, file),
+                          mode='w', encoding='UTF-8') as pass_file:
 
                     pass_file.write(f'Senha --->>> {senha}')
 
-                print('Senha salva com sucesso!')
+                print('Senha salva com sucesso! Verifique na pasta correspondente.')
 
 
 teste = GeradorDeSenha()
